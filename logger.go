@@ -35,12 +35,15 @@ func NewLoggerService() *LoggerService {
 
 func (logger *LoggerService) Info(message string) {
 	logger.log.Info(message)
+	logger.log.Sync()
 }
 
 func (logger *LoggerService) Debug(message string) {
 	logger.log.Debug(message)
+	logger.log.Sync()
 }
 
 func (logger *LoggerService) Error(message string) {
 	logger.log.Error(message)
+	logger.log.Sync()
 }
