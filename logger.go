@@ -7,7 +7,7 @@ import (
 )
 
 type LoggerService struct {
-	Log *zap.Logger
+	log *zap.Logger
 }
 
 func NewLoggerService() *LoggerService {
@@ -29,6 +29,18 @@ func NewLoggerService() *LoggerService {
 
 	logger.Debug("Logger Service Initialized")
 	return &LoggerService{
-		Log: logger,
+		log: logger,
 	}
+}
+
+func (logger *LoggerService) Info(message string) {
+	logger.log.Info(message)
+}
+
+func (logger *LoggerService) Debug(message string) {
+	logger.log.Debug(message)
+}
+
+func (logger *LoggerService) Error(message string) {
+	logger.log.Error(message)
 }
